@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style type="text/css">
+	html, body {
+		color:#333333;
+		font:13px/1.6 "Lucida Grande",Helvetica,Arial,sans-serif;
+}
+	.example {
+		background:#999;
+		font-size:16px;
+		width:293px;
+		height:156px;
+		margin-left:1em;
+		padding-right:2em;
+		
+		overflow:hidden;
+	}
+	.roundabout-holder {
+	list-style: none;
+	height: 130px;
+	width:241px;
+	margin-left: 2em;
+	font-size: 1em;
+}
+
+.roundabout-moveable-item {
+	cursor: pointer;
+	width: 72px;
+	height: 72px;
+	border: 1px solid #999;
+	background-color: #fff;
+	text-align: center;
+	line-height: 2.5em;
+	font-size: 28px;
+}
+
+ .roundabout-in-focus {
+	cursor: auto;
+}
+	
+.caption {
+	font-size: 0.75em; 
+	color: #555; 
+	text-align: center;
+	margin-left: 1em;
+}
+
+</style>
+<body>
+	<h1>Lazy Susan</h1>
+	<div class="example">
+		<ul id="roundabout">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Water Wheel</h1>
+	<div class="example">
+		<ul id="waterwheel">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Figure 8</h1>
+	<div class="example">
+		<ul id="figure8">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Square</h1>
+	<div class="example">
+		<ul id="square">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Conveyor Belt Left</h1>
+	<div class="example">
+		<ul id="conveyorleft">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Conveyor Belt Right</h1>
+	<div class="example">
+		<ul id="conveyorright">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Diagonal RingLeft</h1>
+	<div class="example">
+		<ul id="diagonalleft">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Diagonal Ring Right</h1>
+	<div class="example">
+		<ul id="diagonalright">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+
+	<h1>Rollercoaster</h1>
+	<div class="example">
+		<ul id="rollercoaster">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Tear Drop</h1>
+	<div class="example">
+		<ul id="teardrop">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>The Juggler</h1>
+	<div class="example">
+		<ul id="juggler">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+	
+	<h1>Goodbye Cruel World</h1>
+	<div class="example">
+		<ul id="goodbye">
+			<li>:)</li>
+			<li>:D</li>
+			<li>:p</li>
+			<li>:*</li>
+			<li>:B</li>
+		</ul>				
+	</div>
+<script language="Javascript" type="text/javascript" src="lib/prototype.1.6.1.mini.js"></script>
+<script language="Javascript" type="text/javascript" src="lib/scriptaculous_1_8_3/scriptaculous.js?load=effects"></script>
+<script language="Javascript" type="text/javascript" src="lib/roundabout.js"></script>
+<script language="Javascript" type="text/javascript" src="lib/roundabout.shapes.js"></script>
+<script type="text/javascript">
+	var roundabout = new Roundabout('roundabout'),
+		waterwheel = new Roundabout('waterwheel',{shape:'waterWheel'}),
+		figure8 = new Roundabout('figure8',{shape:'figure8'}),
+		square = new Roundabout('square',{shape:'square'}),
+		conveyorleft = new Roundabout('conveyorleft',{shape:'conveyorBeltLeft'}),
+		conveyorright = new Roundabout('conveyorright',{shape:'conveyorBeltRight'}),
+		diagonalleft = new Roundabout('diagonalleft',{shape:'diagonalRingLeft'}),
+		diagonalright = new Roundabout('diagonalright',{shape:'diagonalRingRight'}),
+		rollercoaster = new Roundabout('rollercoaster',{shape:'rollerCoaster'}),
+		teardrop = new Roundabout('teardrop',{shape:'tearDrop'}),
+		juggler = new Roundabout('juggler',{shape:'theJuggler'}),
+		goodbye = new Roundabout('goodbye',{shape:'goodbyeCruelWorld'});
+</script>
+</body>
+</html>
