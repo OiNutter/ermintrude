@@ -40,7 +40,6 @@
 
  .roundabout-in-focus {
 	cursor: auto;
-	background:#f00;
 }
 	
 .caption {
@@ -48,10 +47,6 @@
 	color: #555; 
 	text-align: center;
 	margin-left: 1em;
-}
-
-.roundabout-active-item{
-	background:#f00;
 }
 
 </style>
