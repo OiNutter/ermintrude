@@ -40,6 +40,7 @@
 
  .roundabout-in-focus {
 	cursor: auto;
+	background:#f00;
 }
 	
 .caption {
@@ -49,26 +50,30 @@
 	margin-left: 1em;
 }
 
+.roundabout-active-item{
+	background:#f00;
+}
+
 </style>
 <body>
 	<div id="example">
-<ul id="roundabout">
+<div id="roundabout">
 
-						<li>:)</li>
-						<li>:D</li>
-						<li>:p</li>
-						<li>:*</li>
-						<li>:B</li>
-</ul>				
+						<div>:)</div>
+						<div>:D</div>
+						<div>:p</div>
+						<div>:*</div>
+						<div>:B</div>
+</div>				
 </div>
 <a href="#" id="next-bt">Next</a>
 <a href="#" id="prev-bt">Prev</a>
 <script language="Javascript" type="text/javascript" src="lib/prototype.1.6.1.mini.js"></script>
 <script language="Javascript" type="text/javascript" src="lib/scriptaculous_1_8_3/scriptaculous.js?load=effects"></script>
-<script language="Javascript" type="text/javascript" src="lib/roundabout.js"></script>
-<script language="Javascript" type="text/javascript" src="lib/roundabout.shapes.js"></script>
+<script language="Javascript" type="text/javascript" src="lib/ermintrude.js"></script>
+<script language="Javascript" type="text/javascript" src="lib/ermintrude.shapes.js"></script>
 <script type="text/javascript">
-	var roundabout = new Roundabout('roundabout',{btnNext:'next-bt',btnPrev:'prev-bt'});
+	var roundabout = new Ermintrude('roundabout',{btnNext:'next-bt',btnPrev:'prev-bt',childSelector:'div'});
 </script>
 </body>
 </html>
