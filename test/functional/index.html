@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style type="text/css">
+	html, body {
+		color:#333333;
+		font:13px/1.6 "Lucida Grande",Helvetica,Arial,sans-serif;
+}
+	#example {
+		background:#999;
+		font-size:16px;
+		width:293px;
+		height:156px;
+		margin-left:1em;
+		padding-right:2em;
+		
+		overflow:hidden;
+	}
+	.roundabout-holder {
+	list-style: none;
+	height: 130px;
+	width:241px;
+	margin-left: 2em;
+	font-size: 1em;
+}
+
+.roundabout-moveable-item {
+	cursor: pointer;
+	width: 72px;
+	height: 72px;
+	border: 1px solid #999;
+	background-color: #fff;
+	text-align: center;
+	line-height: 2.5em;
+	font-size: 28px;
+}
+
+ .roundabout-in-focus {
+	cursor: auto;
+	background:#f00;
+}
+	
+.caption {
+	font-size: 0.75em; 
+	color: #555; 
+	text-align: center;
+	margin-left: 1em;
+}
+
+.roundabout-active-item{
+	background:#f00;
+}
+
+</style>
+<body>
+	<div id="example">
+<div id="roundabout">
+
+						<div>:)</div>
+						<div>:D</div>
+						<div>:p</div>
+						<div>:*</div>
+						<div>:B</div>
+</div>				
+</div>
+<a href="#" id="next-bt">Next</a>
+<a href="#" id="prev-bt">Prev</a>
+<script language="Javascript" type="text/javascript" src="lib/prototype.1.7.0.js"></script>
+<script language="Javascript" type="text/javascript" src="lib/scriptaculous-js-1.9.2/scriptaculous.js?load=effects"></script>
+<script language="Javascript" type="text/javascript" src="src/ermintrude.js"></script>
+<script language="Javascript" type="text/javascript" src="src/ermintrude.shapes.js"></script>
+<script type="text/javascript">
+	var roundabout = new Ermintrude('roundabout',{btnNext:'next-bt',btnPrev:'prev-bt',childSelector:'div'});
+</script>
+</body>
+</html>

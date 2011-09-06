@@ -1,0 +1,85 @@
+require 'rake'
+require 'rake/packagetask'
+require 'yaml'
+
+ROOT_DIR = File.expand_path(File.dirname(__FILE__))
+SRC_DIR = File.join(ROOT_DIR, 'src')
+DIST_DIR = File.join(ROOT_DIR,'dist')
+
+RELEASE_DIR = File.join(DIST_DIR, 'release')
+
+TEST_DIR      = File.join(ROOT_DIR, 'test')
+
+task :default => [:clean, :dist,:unify]
+
+desc "Clean the distribution directory."
+task :clean do 
+  rm_rf DIST_DIR
+  mkdir DIST_DIR
+  mkdir RELEASE_DIR
+end
+
+desc "Generates a minified version for distribution, using UglifyJS."
+task :dist do
+  #dist ermintrude
+  cp File.join(SRC_DIR,'ermintrude.js'), File.join(DIST_DIR,'ermintrude.js')
+  src, target = File.join(DIST_DIR,'ermintrude.js'), File.join(RELEASE_DIR,'ermintrude.min.js')
+  uglifyjs src, target
+  process_minified src, target
+  
+   #dist ermintrude-shapes
+  cp File.join(SRC_DIR,'ermintrude.shapes.js'), File.join(DIST_DIR,'ermintrude.shapes.js')
+  src, target = File.join(DIST_DIR,'ermintrude.shapes.js'), File.join(RELEASE_DIR,'ermintrude.shapes.min.js')
+  uglifyjs src, target
+  process_minified src, target
+end
+
+def uglifyjs(src, target)
+  begin
+    require 'uglifier'
+  rescue LoadError => e
+    if verbose
+      puts "\nYou'll need the 'uglifier' gem for minification. Just run:\n\n"
+      puts "  $ gem install uglifier"
+      puts "\nand you should be all set.\n\n"
+      exit
+    end
+    return false
+  end
+  puts "Minifying #{src} with UglifyJS..."
+  File.open(target, "w"){|f| f.puts Uglifier.new.compile(File.read(src))}
+end
+
+def process_minified(src, target)
+  cp target, File.join(DIST_DIR,'temp.js')
+  msize = File.size(File.join(DIST_DIR,'temp.js'))
+  `gzip -9 #{File.join(DIST_DIR,'temp.js')}`
+
+  osize = File.size(src)
+  dsize = File.size(File.join(DIST_DIR,'temp.js.gz'))
+  rm_rf File.join(DIST_DIR,'temp.js.gz')
+
+  puts "Original version: %.3fk" % (osize/1024.0)
+  puts "Minified: %.3fk" % (msize/1024.0)
+  puts "Minified and gzipped: %.3fk, compression factor %.3f" % [dsize/1024.0, osize/dsize.to_f]
+end
+
+desc "Generates a combined file from ermintrude.js and ermintrude.shapes.js."
+task :unify do
+    puts 'Combining ermintrude.js and ermintrude.shapes.js'
+    unify_distribution [File.join(DIST_DIR,'ermintrude.js'),File.join(DIST_DIR,'ermintrude.shapes.js')], 'ermintrude.full.js'
+end
+
+def unify_distribution(sources,output)
+  unified = ''
+  for source in sources do
+    unified += IO.read(source)
+  end
+  
+  File.open(File.join(DIST_DIR,output), 'w') do |file|
+    file.write unified
+  end 
+
+  uglifyjs File.join(DIST_DIR,output), File.join(RELEASE_DIR,output.gsub('.js','.min.js'))
+
+end
