@@ -5,12 +5,12 @@ require 'yaml'
 ROOT_DIR = File.expand_path(File.dirname(__FILE__))
 SRC_DIR = File.join(ROOT_DIR, 'src')
 DIST_DIR = File.join(ROOT_DIR,'dist')
-
+EXAMPLE_DIR = File.join(ROOT_DIR,'examples/js')
 RELEASE_DIR = File.join(DIST_DIR, 'release')
 
 TEST_DIR      = File.join(ROOT_DIR, 'test')
 
-task :default => [:clean, :dist,:unify]
+task :default => [:clean, :dist,:unify,:examples]
 
 desc "Clean the distribution directory."
 task :clean do 
@@ -25,13 +25,11 @@ task :dist do
   cp File.join(SRC_DIR,'ermintrude.js'), File.join(DIST_DIR,'ermintrude.js')
   src, target = File.join(DIST_DIR,'ermintrude.js'), File.join(RELEASE_DIR,'ermintrude.min.js')
   uglifyjs src, target
-  process_minified src, target
   
    #dist ermintrude-shapes
   cp File.join(SRC_DIR,'ermintrude.shapes.js'), File.join(DIST_DIR,'ermintrude.shapes.js')
   src, target = File.join(DIST_DIR,'ermintrude.shapes.js'), File.join(RELEASE_DIR,'ermintrude.shapes.min.js')
   uglifyjs src, target
-  process_minified src, target
 end
 
 def uglifyjs(src, target)
@@ -48,6 +46,8 @@ def uglifyjs(src, target)
   end
   puts "Minifying #{src} with UglifyJS..."
   File.open(target, "w"){|f| f.puts Uglifier.new.compile(File.read(src))}
+  
+  process_minified src, target
 end
 
 def process_minified(src, target)
@@ -82,4 +82,11 @@ def unify_distribution(sources,output)
 
   uglifyjs File.join(DIST_DIR,output), File.join(RELEASE_DIR,output.gsub('.js','.min.js'))
 
+end
+
+task :examples do
+  puts "Updating JS file in Examples dir..."
+  rm_rf File.join(EXAMPLE_DIR,'ermintrude.full.min.js');
+  cp File.join(RELEASE_DIR,'ermintrude.full.min.js'), File.join(EXAMPLE_DIR,'ermintrude.full.min.js')
+  puts "Updated!"
 end
