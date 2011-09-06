@@ -69,6 +69,7 @@ The main options you will want to customise are (defaults are in square brackets
 - startingChild - `null` - sets the element to be the first focused element. If set to null will focus the first element in the list.
         
 The following options will enable you to alter the shape of the carousel
+
 - bearing - `0.0`
 - tilt - `0.0`
 - minZ - `100`
