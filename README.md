@@ -1,8 +1,9 @@
 Ermintrude
 ==========
 
-Ermintrude is a Prototype([prototypejs.org](http://prototypejs.org)) + Scriptaculous([http://script.aculo.us](http://script.aculo.us)) based carousel script.  It started out as a port of Fred LeBlanc’s excellent Roundabout for jQuery ((http://fredhq.com/projects/roundabout/)[http://fredhq.com/projects/roundabout/]) to Scriptaculous 
-but I'm going to be looking to extend it in the future to build on what the original provides.  I\'ll also be adding a version for Scripty2 when that gets a bit 
+Ermintrude is a Prototype([prototypejs.org](http://prototypejs.org)) + Scriptaculous([http://script.aculo.us](http://script.aculo.us)) based carousel script.  It started out as a port of Fred LeBlanc’s 
+excellent Roundabout for jQuery ([http://fredhq.com/projects/roundabout/](http://fredhq.com/projects/roundabout/)) to Scriptaculous 
+but I'm going to be looking to extend it in the future to build on what the original provides.  I'll also be adding a version for Scripty2 when that gets a bit 
 closer to release status.
 
 Usage
@@ -53,38 +54,37 @@ Where element is the id of the container, so 'roundabout' in the examples given.
 
 The main options you will want to customise are (defaults are in square brackets):
 
-- `shape` \['lazySusan'\] - specifies the carousel shape to use
-- `duration` \[600\] - sets the time the animation takes
-- `btnNext` \[null\] - specifies a next button to use to control the navigation,
-- `btnPrev` \[null\] - specifies a previous button to use to control the navigation
-- `easing` \['sinoidal'\] - defines the easing type to use for the animation. Uses the Scriptaculous (Transition Types)[]
-- `clickToFocus` \[true\] - sets whether clicking the object will cause it to move into focus.
-- `childSelector`\['li'\] - defines the type of dom element to be turned into a carousel element.  Changed this when using a different semantic layout such as divs.
-- `classes`
-    * `activeClass` \['roundabout-in-focus'\] - class assigned to the currently focused element.
-    * `itemClass` \['roundabout-moveable-item'\] - class assigned to all elements.
-    * `holderClass` \['roundabout-holder'\] - the class assigned to the containing element.
-- `reflect` \['false'\] - reverses the order of the elements.
-- `startingChild` \[null\] - sets the element to be the first focused element. If set to null will focus the first element in the list.
+- shape - `'lazySusan'` - specifies the carousel shape to use
+- duration - `600` - sets the time the animation takes
+- btnNext - `null` - specifies a next button to use to control the navigation,
+- btnPrev - `null` - specifies a previous button to use to control the navigation
+- easing - `'sinoidal'` - defines the easing type to use for the animation. Uses the Scriptaculous (Transition Types)[]
+- clickToFocus - `true` - sets whether clicking the object will cause it to move into focus.
+- childSelector - `'li'` - defines the type of dom element to be turned into a carousel element.  Changed this when using a different semantic layout such as divs.
+- classes
+    * activeClass - `'roundabout-in-focus'` - class assigned to the currently focused element.
+    * itemClass - `'roundabout-moveable-item'` - class assigned to all elements.
+    * holderClass - `'roundabout-holder'` - the class assigned to the containing element.
+- reflect - `'false'` - reverses the order of the elements.
+- startingChild - `null` - sets the element to be the first focused element. If set to null will focus the first element in the list.
         
 The following options will enable you to alter the shape of the carousel
-- `bearing` \[0.0\]
-- `tilt` \[0.0\]
-- `minZ` \[100\]
-- `maxZ` \[400\]
-- `minOpacity` \[0.40\]
-- `maxOpacity` \[1.00\]
-- `minScale` \[0.40\]
-- `maxScale` \[1.00\]
-- `focusBearing` \[0.0\]
-- `debug` \[false\]
+- bearing - `0.0`
+- tilt - `0.0`
+- minZ - `100`
+- maxZ - `400`
+- minOpacity - `0.40`
+- maxOpacity - `1.00`
+- minScale - `0.40`
+- maxScale - `1.00`
+- focusBearing - `0.0`
 
 Shapes
 ------
 
 The following are all the possible shapes you can use:
 
-- lazySusan \[default\]
+- lazySusan (default)
 - waterWheel
 - figure8
 - square
