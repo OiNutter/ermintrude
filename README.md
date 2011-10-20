@@ -101,5 +101,5 @@ The following are all the possible shapes you can use:
 Demos
 -----
 
-For a full range of demos go to (http://oinutter.co.uk/ermintrude/examples/)[http://oinutter.co.uk/ermintrude/examples/]. 
+For a full range of demos go to (http://oinutter.github.com/ermintrude/)[http://oinutter.github.com/ermintrude/]. 
                     
